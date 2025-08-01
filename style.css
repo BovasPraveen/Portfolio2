@@ -403,3 +403,29 @@ body {
 .contact-bar a:hover {
   color: #007acc;
 }
+
+@media (max-width: 480px) {
+  .site-header h1 {
+    font-size: 1.5rem;
+  }
+
+  .site-header p {
+    font-size: 0.9rem;
+  }
+
+  .profile-pic {
+    width: 100px;
+    height: 100px;
+  }
+
+  .nav ul li {
+    font-size: 0.9rem;
+  }
+
+  button,
+  input,
+  textarea {
+    font-size: 1rem;
+    width: 100%;
+  }
+}
