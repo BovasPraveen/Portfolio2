@@ -1,153 +1,80 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Bovas Praveen — Portfolio</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- AOS for scroll animations -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <!-- Simple icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
   <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
-  <header class="site-header">
-    <img src="Profile.jpeg" alt="Bovas Praveen" class="profile-pic" />
-    <h1>Bovas Praveen A</h1>
-    <p>Full Stack Developer</p>
-  </header>
-  <div class="contact-bar">
-    <a href="https://www.linkedin.com/in/bovas-praveen-6a3051331" target="_blank">
-      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn" class="icon" />
-    </a>
-    <a href="https://github.com/BovasPraveen" target="_blank">
-      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/github.svg" alt="GitHub" class="icon" />
-    </a>
-    <span class="phone">📞 +91 73396 27409</span>
-  </div>
-
-  <div id="one">
-    <nav class="nav">
-      <ul>
+  <nav class="nav" id="navbar">
+    <div class="nav-inner">
+      <a class="brand" href="#">Bovas Praveen</a>
+      <button class="nav-toggle" aria-label="toggle navigation" id="navToggle">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
         <li><a href="#about">About</a></li>
-        <li><a href="#projects">Projects</a></li>        
-        <li><a href="#certification">Certifications</a></li>
         <li><a href="#skills">Skills</a></li>
+        <li><a href="#certification">Certifications</a></li>
+        <li><a href="#projects">Projects</a></li>
         <li><a href="#contact">Contact</a></li>
+        <li><a href="https://lnkd.in/gciCP3gK" target="_blank" rel="noopener">LinkedIn</a></li>
       </ul>
-    </nav>
-  </div>
-  <section id="about" class="section-about">
-    <br>
-    <h2>About Me</h2>
-    <p>
-      <br>
-      I'm Bovas Praveen, an enthusiastic and detail-oriented Computer Science undergraduate at
-      St. Joseph's College of Engineering & Technology, Thanjavur (2022–2026), <br> with a current CGPA of 8.4.
-      I’m passionate about building dynamic, <br> user-friendly web applications and excited to apply my
-      academic foundation and internship experience in a Full Stack Developer role.
-    </p>
-    <br>
-    <p>
-      During my internship at Scion R&D, I contributed to creating reusable components that improved code efficiency by
-      20%,
-      and collaborated<br> with a team using Git for version control.I’m a fast learner with a strong grasp
-      of HTML, CSS, JavaScript, Java, and MySQL, and <br>I enjoy working in team environments that challenge my
-      creativity and problem-solving skills.
-    </p>
-  </section>
-
-
-  <section id="projects" class="section projects">
-    <h2>Projects</h2>
-    <div class="project-grid">
-
-      <div class="project-card">
-        <h3>E-Commerce Website</h3>
-        <p>Features include user authentication, product listings, cart management, and order tracking. 
-          Designed with a responsive UI for seamless performance across devices.</p>
-        <p><strong>Technologies:</strong> JavaScript, My SQL, HTML/CSS</p>
-        <a href="https://bovaspraveen.github.io/ECOMMERCE-2/" target="_blank">Live Demo →</a>
-      </div>
-
-      <div class="project-card">
-        <h3>Personal Portfolio</h3>
-        <p>Showcases my skills, projects, certifications, and 
-          contact details with smooth navigation and mobile-friendly design.</p>
-        <p><strong>Technologies:</strong> JavaScript, My SQL, HTML/CSS</p>
-        <a href="https://bovaspraveen.github.io/Portfolio2/" target="_blank">Live Demo →</a>
-      </div>
-
-      <div class="project-card">
-        <h3>Speech-to-Text with LLM Integration</h3>
-        <p>Converts speech into text and refines output using a Large Language Model (LLM) for summarization or Q&A.
-          Enhances speech accuracy and usability for assistive tech and smart apps.</p>
-        <p><strong>Technologies:</strong> Python, Whisper API, OpenAI/GPT APIs</p>
-        <a href="https://github.com/BovasPraveen" target="_blank">View on GitHub →</a>
-      </div>
-
     </div>
-  </section>
+  </nav>
 
-
-  <section id="certification" class="section Certifications">
-    <h2>Certifications</h2>
-    <div class="certificate-grid">
-
-      <div class="certificate-card">
-        <h3>Elite Certification in NPTEL</h3>
-        <p>Got Elite Certificate in NPTEL on Human Computer Interaction Course</p>
+  <header class="hero" id="home">
+    <div class="hero-inner" data-aos="fade-up">
+      <img src="Profile.jpeg" alt="Bovas Praveen" class="hero-avatar" />
+      <div class="hero-copy">
+        <h1 class="title">Hi, I'm <span class="name">Bovas Praveen</span></h1>
+        <h2 class="subtitle"> <span id="typed"></span><span class="cursor">|</span></h2>
+        <p class="lead">I build full-stack web applications using Java, Spring Boot, MySQL and modern frontend tech — focused on clean design and solid architecture.</p>
+        <div class="hero-cta">
+          <a class="btn-primary" href="#projects">See Projects</a>
+          <a class="btn-ghost" href="#contact">Contact Me</a>
+        </div>
       </div>
-
-      <div class="certificate-card">
-        <h3>Certification in CODE DEBUG</h3>
-        <p>Got Certificate in CODE DEBUG at Annai College of Engineering, Kumbakonam.</p>
-      </div>
-
-      <div class="certificate-card">
-        <h3>Certification in WEB DESIGN</h3>
-        <p>Got Certificate in WEB DESIGN at Annai College of Engineering, Kumbakonam.</p>
-      </div>
-      
-      <div class="certificate-card">
-        <h3>Certification On Industrial Visit</h3>
-        <p>Certificate for attending the industrial visit at TECHVOLT SOFTWARE PVT.LTD on Software development</p>
-      </div>
-
-      <div class="certificate-card"> 
-        <h3>Certification on C, C++, JAVA </h3>
-        <p>Certificate of training in TAMILNADU ADVANCED TECHNICAL TRAINING INSTITUTE on C,C++,JAVA
-.</p>
-      </div>
-
-      <div class="certificate-card">
-        <h3>Certification in </h3>
-        <p>Certificate of Completion in Internship Training in Core Python At ARMADA INDUSTRIAL AUTOMATION</p>
-      </div>
-
     </div>
-  </section>
+  </header>
 
+  <main class="container">
+    <section id="about" class="section" data-aos="fade-up">
+      <h2>About</h2>
+      <p>I am a Full Stack Developer skilled in Java, Spring Boot, MySQL, HTML, CSS, and JavaScript. I enjoy building reliable applications with clean code and attractive UI designs. This portfolio was redesigned to be modern, responsive, and accessible.</p>
+    </section>
 
-
-  </section>
+    </section>
   <section id="skills" class="section skills">
     <h2>Skills & Tools</h2>
 
     <div class="skills-grid">
 
-     <div class="skill-set">
+     <div class="skill-card" data-aos="zoom-in" data-aos-delay="100">
         <h3>Backend</h3><br>
         <ul>
           <strong>Java (Servlets & JSP):</strong> Used to build dynamic server-side components for web applications.<br>
         </ul>
       </div>
 
-      <div class="skill-set">
+      <div class="skill-card" data-aos="zoom-in" data-aos-delay="200">
         <h3>Database</h3><br>
         <ul>
           <strong>MySQL:</strong> Proficient in writing queries, designing schemas, and managing relational data.<br>
         </ul>
       </div>        
-      <div class="skill-set">
+      <div class="skill-card" data-aos="zoom-in" data-aos-delay="300">
         <h3>Frontend</h3><br>
         <ul>
           <strong>HTML5:</strong> Markup language for building structured and accessible web pages.<br><br>
@@ -156,7 +83,7 @@
         </ul>
       </div>
 
-      <div class="skill-set">
+      <div class="skill-card" data-aos="zoom-in" data-aos-delay="400">
         <h3>Tools & Platforms</h3><br>
         <ul>
           <strong>Git & GitHub:</strong> Version control and collaborative code management using Git workflows.<br><br>
@@ -164,7 +91,7 @@
           <strong>Eclipse:</strong> Java development using Eclipse IDE for backend logic and servlets.<br><br>
         </ul>
       </div>      
-      <div class="skill-set">
+      <div class="skill-card" data-aos="zoom-in" data-aos-delay="500">
         <h3>Design & Multimedia</h3><br>
         <ul>
           <strong>Figma:</strong> UI/UX wireframing and prototyping collaborative designs.<br><br>
@@ -172,7 +99,7 @@
           <strong>Canva:</strong> Designing presentations and promotional visuals quickly.<br><br>
         </ul>
       </div>
-      <div class="skill-set">
+      <div class="skill-card" data-aos="zoom-in" data-aos-delay="600">
         <h3>Soft Skills</h3><br>
         <ul>
           <strong>Problem Solving:</strong> Strong analytical skills to break down complex issues.<br><br>
@@ -182,25 +109,112 @@
     </div>
   </section>
 
-    <div class="contact-container">
-  <h2>Contact Us</h2>
-  
-  <form id="contact" action="https://formspree.io/f/mjkoozej" method="POST">
-    <input type="text" name="name" placeholder="Your Name" required />
-    <input type="email" name="email" placeholder="Your Email" required />
-    <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
-    <button type="submit">Send Message</button>
-    <div class="message" id="responseMsg" style="display:none;">Thank you! We'll get back to you soon.</div>
-  </form>
-</div>
+    <section id="certification" class="section Certifications">
+    <h2>Certifications</h2>
+    <div class="certificate-grid">
 
+      <div class="certificate-card" data-aos="zoom-in" data-aos-delay="100">
+        <h3>Elite Certification in NPTEL</h3>
+        <p>Got Elite Certificate in NPTEL on Human Computer Interaction Course</p>
+      </div>
 
+      <div class="certificate-card" data-aos="zoom-in" data-aos-delay="200">
+        <h3>Certification in CODE DEBUG</h3>
+        <p>Got Certificate in CODE DEBUG at Annai College of Engineering, Kumbakonam.</p>
+      </div>
 
-  <footer>
-    <p>&copy; @2025</p>
+    <div class="certificate-card" data-aos="zoom-in" data-aos-delay="300">
+        <h3>Certification in WEB DESIGN</h3>
+        <p>Got Certificate in WEB DESIGN at Annai College of Engineering, Kumbakonam.</p>
+      </div>
+      
+      <div class="certificate-card" data-aos="zoom-in" data-aos-delay="400">
+        <h3>Certification On Industrial Visit</h3>
+        <p>Certificate for attending the industrial visit at TECHVOLT SOFTWARE PVT.LTD on Software development</p>
+      </div>
+
+      <div class="certificate-card" data-aos="zoom-in" data-aos-delay="500">
+        <h3>Certification on C, C++, JAVA </h3>
+        <p>Certificate of training in TAMILNADU ADVANCED TECHNICAL TRAINING INSTITUTE on C,C++,JAVA
+.</p>
+      </div>
+
+      <div class="certificate-card" data-aos="zoom-in" data-aos-delay="600">
+        <h3>Certification in </h3>
+        <p>Certificate of Completion in Internship Training in Core Python At ARMADA INDUSTRIAL AUTOMATION</p>
+      </div>
+
+    </div>
+  </section>
+
+    <section id="projects" class="section" data-aos="fade-up">
+      <h2>Projects</h2>
+      <div class="projects-grid">
+        <article class="project-card" data-aos="zoom-in" data-aos-delay="100">
+          <h3>Mini E-Commerce Website</h3>
+          <p>Built using Java, MySQL, HTML, CSS, and JavaScript. Features product listing, cart, and checkout flow.</p>
+          <div class="project-tags"><span>Java</span><span>MySQL</span><span>Frontend</span><span><a href="https://bovaspraveen.github.io/ECOMMERCE-2/"> Live Demo</a></span></div>
+        </article>
+
+        <article class="project-card" data-aos="zoom-in" data-aos-delay="200">
+          <h3>Library Management System</h3>
+          <p>A complete system with login for students and librarians, book issuance, and inventory management.</p>
+          <div class="project-tags"><span>Spring Boot</span><span>MySQL</span><span>Full Stack</span></div>
+        </article>
+
+        <article class="project-card" data-aos="zoom-in" data-aos-delay="300">
+          <h3>Notes Manager</h3>
+          <p>Developed in Java with layered architecture, UML documentation, and testing.</p>
+          <div class="project-tags"><span>Java</span><span>Design</span></div>
+        </article>
+        
+      <div class="project-card">
+        <h3>Personal Portfolio</h3>
+        <p>Showcases my skills, projects, certifications, and 
+          contact details with smooth navigation and mobile-friendly design.</p>
+          <div class="project-tags"><span>JavaScript</span><span>My SQL</span><span>HTML/CSS</span><span><a href="https://bovaspraveen.github.io/Portfolio2/" target="_blank">Live Demo</a></span> </div>
+      </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section" data-aos="fade-up">
+      <h2>Contact</h2>
+      <div class="contact-grid">
+        <form id="contactForm" class="contact-form" method="POST" action="https://formspree.io/f/mjkoozej">
+          <label><input type="text" name="name" placeholder="Your name" required></label>
+          <label><input type="email" name="email" placeholder="Your email" required></label>
+          <label><input type="text" name="subject" placeholder="Subject"></label>
+          <label><textarea name="message" placeholder="Message" rows="6" required></textarea></label>
+          <div class="form-actions">
+            <button class="btn-primary" type="submit">Send Message</button>
+          </div>
+          <div id="formResponse" class="form-response" aria-live="polite" hidden></div>
+        </form>
+
+        <div class="contact-info">
+         <h3>Let's connect</h3>
+          <p>📞 <a href="tel:7339627409">7339627409</a></p>
+          <p>✉️ <a href="mailto:bovaspraveensjcetcse@gmail.com">bovaspraveensjcetcse@gmail.com</a></p>
+    
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" data-aos="fade-up">
+    <div class="footer-inner">
+         <div class="socials">
+        <a href="https://lnkd.in/gciCP3gK" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin"></i></a>
+        <a href="https://github.com/bovaspraveen" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i></a>
+        
+      </div>
+    </div>
   </footer>
 
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script src="script.js"></script>
+  <script>
+    AOS.init({duration:800, once:true});
+  </script>
 </body>
-
 </html>
