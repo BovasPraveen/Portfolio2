@@ -3,6 +3,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  text-decoration:none;
 }
 
 html {
@@ -23,7 +24,7 @@ body {
   background: #31363F;
   padding: 0.8rem 2rem;
   z-index: 999;
-  transition: background 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .nav-inner {
@@ -222,6 +223,24 @@ body {
 .certificate-card:hover {
   transform: scale(1.05);
 }
+/* intership */
+.Internship-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+.Internship-card {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease;
+}
+
+.Internship-card:hover {
+  transform: scale(1.05);
+}
 
 /* ===== Projects ===== */
 .projects-grid {
@@ -243,6 +262,12 @@ body {
 
 .project-tags {
   margin-top: 0.8rem;
+  text-decoration: none;
+
+}
+.project-tags span a {
+  text-decoration: none;
+  color: inherit;
 }
 
 .project-tags span {
@@ -252,6 +277,11 @@ body {
   background: #FFD369;
   border-radius: 20px;
   font-size: 0.85rem;
+  text-decoration: none;
+
+}
+.project-tags span:hover {
+  background: #F6C100;
 }
 
 /* ===== Contact Section ===== */
