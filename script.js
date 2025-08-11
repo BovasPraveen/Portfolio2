@@ -1,83 +1,63 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const form = document.getElementById('contact');
 
-    form.addEventListener('submit', function(e) {
-        e.preventDefault();
-        const formData = new FormData(form);
-        const object = Object.fromEntries(formData);
-        const json = JSON.stringify(object);
+// Typing effect
+const phrases = ['Full Stack Developer', 'Java & Spring Boot', 'Frontend: HTML, CSS, JS', 'Building reliable apps'];
+let idx = 0, char = 0, cur = '', isDeleting=false;
+const typedEl = document.getElementById('typed');
+function type(){
+  const full = phrases[idx];
+  if(!isDeleting){
+    cur = full.slice(0, ++char);
+    typedEl.textContent = cur;
+    if(cur === full){ isDeleting = true; setTimeout(type, 900); return; }
+  } else {
+    cur = full.slice(0, --char);
+    typedEl.textContent = cur;
+    if(char === 0){ isDeleting = false; idx = (idx+1)%phrases.length; }
+  }
+  setTimeout(type, isDeleting ? 60 : 120);
+}
+document.addEventListener('DOMContentLoaded', function(){
+  // start typing
+  type();
 
-        fetch('https://formspree.io/f/mjkoozej', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json'
-                },
-                body: json
-            })
-            .then(async (response) => {
-                let json = await response.json();
-                if (response.status === 200) {
-                    alert("Form submitted successfully");
-                } else {
-                    console.log(response);
-                    alert(json.message);
-                }
-            })
-            .catch(error => {
-                console.log(error);
-                alert("Something went wrong!");
-            })
-            .then(function() {
-                form.reset();
-            });
-    });
-});
+  // nav toggle
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+  navToggle.addEventListener('click', ()=> navLinks.classList.toggle('show'));
 
-
-// Optional: smooth scroll
-document.querySelectorAll('nav a').forEach(a => {
-  a.addEventListener('click', e => {
-    e.preventDefault();
-    document.querySelector(a.getAttribute('href')).scrollIntoView({
-      behavior: 'smooth'
+  // smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(a=>{
+    a.addEventListener('click', function(e){
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if(target) target.scrollIntoView({behavior:'smooth', block:'start'});
+      if(navLinks.classList.contains('show')) navLinks.classList.remove('show');
     });
   });
-});
 
-// Theme toggle example (light/dark)
-// const toggle = document.createElement('button');
-// toggle.textContent = '🌙';
-// toggle.classList.add('theme-toggle');
-// toggle.style = "position:fixed;bottom:1rem;right:1rem;";
-// document.body.appendChild(toggle);
-// toggle.addEventListener('click', () => {
-//   document.body.classList.toggle('dark-mode');
-//   toggle.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
-// });
-// Smooth scroll for nav
-document.querySelectorAll('nav a').forEach(a => {
-  a.addEventListener('click', e => {
+  // form handling with fetch to keep single-page UX
+  const form = document.getElementById('contactForm');
+  form.addEventListener('submit', async function(e){
     e.preventDefault();
-    document.querySelector(a.getAttribute('href')).scrollIntoView({
-      behavior: 'smooth'
-    });
-  });
-});
-
-// Reveal sections on scroll
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
+    const formData = new FormData(form);
+    try{
+      const resp = await fetch(form.action, {
+        method:'POST',
+        headers:{ 'Accept': 'application/json' },
+        body: formData
+      });
+      if(resp.ok){
+        document.getElementById('formResponse').hidden=false;
+        document.getElementById('formResponse').textContent = 'Thanks — message sent!';
+        form.reset();
+      } else {
+        const json = await resp.json();
+        document.getElementById('formResponse').hidden=false;
+        document.getElementById('formResponse').textContent = json.error || 'Oops! There was a problem.';
+      }
+    }catch(err){
+      document.getElementById('formResponse').hidden=false;
+      document.getElementById('formResponse').textContent = 'Network error — please try again later.';
     }
   });
-}, {
-  threshold: 0.1
 });
-
-// Apply to all .section elements
-document.querySelectorAll('.section').forEach(section => {
-  observer.observe(section);
-});
-
